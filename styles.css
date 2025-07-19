@@ -102,7 +102,7 @@ h2, h3 {
   text-shadow: 0 2px 16px #bfa76a22;
 }
 main {
-  background: rgb(0 0 0 / 98%);
+  background: rgba(5, 5, 5, 0.98);
   border-radius: 32px;
   box-shadow: 0 12px 48px #00000022, 0 0 0 #fff0;
   padding: 2.5rem 2.5rem;
@@ -125,7 +125,7 @@ main {
 .about p {
   font-size: 1.15rem;
   line-height: 1.7;
-  color: #3d3d3d;
+  color: #ffffff;
 }
 .btn {
   display: inline-block;
@@ -212,7 +212,7 @@ footer a:hover {
   text-align: left;
   margin-bottom: 1.2rem;
   font-size: 2rem;
-  color: #bfa76a;
+  color: #ffffff;
   text-shadow: 0 2px 16px #bfa76a22;
 }
 .menu-item {
@@ -363,4 +363,164 @@ footer a:hover {
   .garden-deco, .garden-deco2 {
     width: 60px;
   }
+} 
+
+/* --- Animated Wavy Underline for Section Titles --- */
+.menu-section h2 {
+  position: relative;
+  overflow: visible;
+}
+/* Remove wavy underline animation under section titles */
+.menu-section h2::after {
+  display: none !important;
+}
+
+/* --- Animated Header Slide In --- */
+header {
+  animation: headerSlideIn 1.2s cubic-bezier(.4,0,.2,1);
+}
+@keyframes headerSlideIn {
+  from { opacity: 0; transform: translateY(-40px); }
+  to { opacity: 1; transform: none; }
+}
+
+/* --- Floating Animation for Menu Images --- */
+.menu-item img {
+  animation: floatImg 3.5s ease-in-out infinite alternate;
+}
+@keyframes floatImg {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-10px) scale(1.04); }
+}
+
+/* --- Mediterranean Animated Background Accent --- */
+body::before {
+  animation: bgWaveDown 12s ease-in-out infinite alternate;
+}
+body::after {
+  animation: bgWaveUp 14s ease-in-out infinite alternate;
+}
+@keyframes bgWaveDown {
+  0% { background-position-y: 0; }
+  100% { background-position-y: 40px; }
+}
+@keyframes bgWaveUp {
+  0% { background-position-y: 0; }
+  100% { background-position-y: -40px; }
+}
+
+/* --- Enhanced Button Ripple Effect --- */
+.btn {
+  position: relative;
+  overflow: hidden;
+}
+.btn:active::after {
+  opacity: 1;
+  transition: opacity 0.4s, transform 0.4s;
+  transform: scale(2.5);
+}
+
+/* --- Fade-in on Scroll for Menu Items --- */
+.menu-item {
+  opacity: 0;
+  transform: translateY(40px) scale(0.98);
+  transition: opacity 0.7s cubic-bezier(.4,0,.2,1), transform 0.7s cubic-bezier(.4,0,.2,1);
+}
+.menu-item.visible {
+  opacity: 1;
+  transform: none;
+} 
+
+/* --- Map Section Styling --- */
+.map-title {
+  font-family: 'Playfair Display', serif;
+  color: #ffffff;
+  font-size: 1.3rem;
+  margin: 2.2rem 0 0.7rem 0;
+  text-align: center;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 16px #bfa76a22;
+}
+.map-container {
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto 2.5rem auto;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 4px 32px #bfa76a33, 0 0 0 #fff0;
+  border: 2px solid #f3e9dc;
+  background: #fff;
+  animation: fadeIn 1.2s cubic-bezier(.4,0,.2,1);
+}
+.map-container iframe {
+  display: block;
+  width: 100%;
+  height: 260px;
+  border: none;
+} 
+
+/* --- Center Section Titles --- */
+.menu-section h2 {
+  text-align: center;
+}
+
+/* --- Center Animated SVGs --- */
+.plats-anim, .boisson-anim {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.2rem;
+  margin-top: -0.5rem;
+}
+.plats-anim svg {
+  display: block;
+  max-width: 140px;
+  width: 100%;
+  height: auto;
+}
+.boisson-anim svg {
+  display: block;
+  max-width: 80px;
+  width: 100%;
+  height: auto;
+}
+
+/* --- Restore Plats Animation --- */
+.steam {
+  stroke-dasharray: 24;
+  stroke-dashoffset: 24;
+  opacity: 0.7;
+  animation: steamRise 2.2s ease-in-out infinite;
+}
+.steam1 { animation-delay: 0s; }
+.steam2 { animation-delay: 0.7s; }
+.steam3 { animation-delay: 1.4s; }
+@keyframes steamRise {
+  0% { stroke-dashoffset: 24; opacity: 0.1; }
+  30% { opacity: 0.7; }
+  60% { stroke-dashoffset: 0; opacity: 0.7; }
+  100% { stroke-dashoffset: 24; opacity: 0.1; }
+}
+
+/* --- Restore Boisson Animation --- */
+.bubble {
+  opacity: 0.7;
+  animation: bubbleRise 2.5s ease-in-out infinite;
+}
+.bubble1 { animation-delay: 0s; }
+.bubble2 { animation-delay: 0.8s; }
+.bubble3 { animation-delay: 1.4s; }
+.bubble4 { animation-delay: 1.9s; }
+@keyframes bubbleRise {
+  0% { transform: translateY(0) scale(1); opacity: 0.7; }
+  60% { opacity: 1; }
+  80% { transform: translateY(-18px) scale(1.2); opacity: 0.8; }
+  100% { transform: translateY(-28px) scale(0.7); opacity: 0; }
+}
+
+/* --- Center Contact Button --- */
+.btn {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
 } 
